@@ -1,24 +1,35 @@
-<form >
+<form [formGroup]="emloyeesForm" (ngSubmit)="emloyeesForm.valid && onSubmit(emloyeesForm)">
 <div class="row">
        
     <div class="col-md-4">
-        
+        {{emloyeesForm.value|json}}
 
             <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" id="name" class="form-control">
-            
+            <input type="text" id="name" 
+            class="form-control" 
+            formControlName="uname"
+            [class.is-invalid]="uname.invalid && uname.touched">        
+            </div>
+            <div *ngIf="uname.invalid && uname.touched">
+                <small *ngIf="uname.errors?.required" class="text-danger">*Name is Required !!</small>
+                 <small *ngIf="uname.errors.minlength"  class="text-danger">*Name is Required && minlength 3 !!</small> 
+                 
             </div>
 
 
             <div class="form-group">
                 <label for="mobile">Mobile No</label>
-                <input type="number" id="" class="form-control">
+                <input type="number" id="" class="form-control" formControlName="umobile">
          
             </div>
 
             <div class="form-group">
-               <button type="submit" class="btn btn-outline-success"><i class="fa fa-save" style="color:darkgreen"></i>submit</button>&nbsp;
+               <button type="submit" 
+               class="btn btn-outline-success" [disabled]="!emloyeesForm.valid">           
+               
+               <i class="fa fa-save" style="color:rgb(93, 233, 93)" ></i>submit</button>&nbsp;
+
                <button type="submit" class="btn btn-outline-danger"><i class="fa fa-retweet" style="color:darkred"></i>reset</button>
             
             </div>

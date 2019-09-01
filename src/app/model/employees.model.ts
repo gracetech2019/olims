@@ -1,5 +1,5 @@
 export interface IEmployees {
-    id:null;
+    id:number;
     name:string;
     mobile:number
 }
