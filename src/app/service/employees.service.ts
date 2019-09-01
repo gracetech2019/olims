@@ -17,9 +17,12 @@ export class EmployeesService {
 constructor(private _http:HttpClient  
   ) { }
  getEmployeelist():Observable<IEmployees[]>{
-      return this._http.get<IEmployees[]>(`${RootUrl}employee`,httpOptions) 
+      return this._http.get<IEmployees[]>(`${RootUrl}employee`,httpOptions) ;
      }
      
+     saveEmployee():Observable<IEmployees[]>{
+return this._http.post<IEmployees[]>(`${RootUrl}employee`,httpOptions) ;
+     }
     
 
     // ************last one*******************
