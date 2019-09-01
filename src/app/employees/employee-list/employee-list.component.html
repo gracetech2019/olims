@@ -1,1 +1,26 @@
-<p>employee-list works!</p>
+<table class="table table-hover">
+    <tbody>
+<tr *ngFor="let emp of employee">
+    <td>{{emp.name }}</td>
+    <td>{{emp.mobile}}</td>
+    <td><a href="#"><i class="fa fa-edit"></i></a></td>
+    <td><a href="#"><i class="fa fa-trash"></i></a></td>
+    </tr>
+    </tbody>
+</table>
+
+
+<!-- <table class="table table-hover table-bordered">
+         <thead>
+        <tr>
+            <th>name</th>
+            <th>mobile</th>
+        </tr>
+    </thead> 
+    <tbody>
+        <tr *ngFor="let emp of employee">
+        <td>{{emp.name }}</td>
+        <td>{{emp.mobile}}</td>
+        </tr>
+    </tbody>
+    </table> -->
